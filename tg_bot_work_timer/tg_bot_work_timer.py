@@ -6,7 +6,7 @@ import datetime
 from telebot import types
 import sqlite3
 
-conn = sqlite3.connect('C:\\Users\\vanv2\\Desktop\\PROG\\tg_bot\\tg_bot_work_timer\\bd\\study_time_manager.db', check_same_thread=False)
+conn = sqlite3.connect('\\bd\\study_time_manager.db', check_same_thread=False)
 cursor = conn.cursor()
 def db_table_val(user_id: int, start_study: datetime, pause_study: datetime, continue_study: datetime, finish_study: datetime):
 	cursor.execute('INSERT INTO stydy_time (user_id, start_study, pause_study, continue_study, finish_study) VALUES (?,?,?,?,?)', (user_id, start_study, pause_study, continue_study, finish_study))
