@@ -1,5 +1,4 @@
 from asyncio.windows_events import NULL
-from time import time
 import telebot
 import bot_key
 import datetime
