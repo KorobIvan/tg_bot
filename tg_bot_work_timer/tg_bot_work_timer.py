@@ -12,19 +12,19 @@ def db_table_val(user_id: int, start_study: datetime, pause_study: datetime, con
 	cursor.execute('INSERT INTO stydy_time (user_id, start_study, pause_study, continue_study, finish_study) VALUES (?,?,?,?,?)', (user_id, start_study, pause_study, continue_study, finish_study))
 	conn.commit()
 def db_table_update_fin(finish_study: datetime, study_time: str, study_id = int):
-	cursor.execute('UPDATE stydy_time SET finish_study = ?, study_time = ? WHERE study_id = ?;', (finish_study, study_time, study_id))
+	cursor.execute('UPDATE study_time SET finish_study = ?, study_time = ? WHERE study_id = ?;', (finish_study, study_time, study_id))
 	conn.commit()
 	return
 def db_table_update_pause(pause_study: datetime, study_id = int):
-	cursor.execute('UPDATE stydy_time SET pause_study = ? WHERE study_id = ?;', (pause_study, study_id))
+	cursor.execute('UPDATE study_time SET pause_study = ? WHERE study_id = ?;', (pause_study, study_id))
 	conn.commit()
 	return
 def db_table_update_cont(continue_study: datetime,sum_pause: int, study_id = int):
-	cursor.execute('UPDATE stydy_time SET continue_study = ?, sum_pause = ? WHERE study_id = ?;', (continue_study,sum_pause, study_id))
+	cursor.execute('UPDATE study_time SET continue_study = ?, sum_pause = ? WHERE study_id = ?;', (continue_study,sum_pause, study_id))
 	conn.commit()
 	return
 def db_table_query(us_id):
-    cursor.execute(f'SELECT * from stydy_time WHERE user_id = {us_id};')
+    cursor.execute(f'SELECT * from study_time WHERE user_id = {us_id};')
     result = cursor.fetchall()
     return result
 
